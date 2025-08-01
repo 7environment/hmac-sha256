@@ -78,6 +78,7 @@ local function signData(SECRET_KEY, data)
     table.sort(queryString)
 
     local message = table.concat(queryString, "\n")
+    print(message)
     return hmac_sha256(SECRET_KEY, message)
 end
 
