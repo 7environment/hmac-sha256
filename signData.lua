@@ -1,4 +1,4 @@
-local hmac_sha256 = loadstring(game:HttpGet("https://raw.githubusercontent.com/7environment/hmac-sha256/refs/heads/main/hmac-sha256", true))()
+local hmac_sha256 = loadstring(game:HttpGet("https://raw.githubusercontent.com/7environment/hmac-sha256/refs/heads/main/hmac-sha256.lua", true))()
 local function tableToString(t, seen)
     seen = seen or {}
     if seen[t] then return "table_recursion" end
