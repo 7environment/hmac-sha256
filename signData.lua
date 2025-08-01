@@ -54,7 +54,7 @@ local function tableToString(t, seen)
         else
             valStr = tostring(v)
         end
-        table.insert(parts, keyStr .. ":" .. valStr)
+        table.insert(parts, keyStr .. "=" .. valStr)
     end
 
     return table.concat(parts, ",")
