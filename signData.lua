@@ -61,23 +61,7 @@ local function tableToString(t, seen)
 end
 
 local function signData(SECRET_KEY, data)
-    local queryString = {}
-    for k, v in pairs(data) do
-        local valueStr
-        if type(v) == "table" then
-            valueStr = "table{" .. tableToString(v) .. "}"
-        elseif type(v) == "string" then
-            valueStr = '"' .. v .. '"'
-        else
-            valueStr = tostring(v)
-        end
-        table.insert(queryString, tostring(k) .. "=" .. valueStr)
-    end
-
-    -- Сортируем по ключу
-    table.sort(queryString)
-
-    local message = table.concat(queryString, "\n")
+    local message = tableToString(data)
     return hmac_sha256(SECRET_KEY, message)
 end
 
